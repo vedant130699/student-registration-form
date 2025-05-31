@@ -18,6 +18,8 @@ public class StudentController {
 
     @Value("${countries}")
     private List<String> Countries;
+    @Value("${languages}")
+    private List<String> languages;
     @RequestMapping("/showStudentForm")
     public String showForm(Model theModel){
         //create a new student object
@@ -27,6 +29,7 @@ public class StudentController {
         //add that object as a model attribute
         theModel.addAttribute("student", theStudent);
         theModel.addAttribute("countries", Countries);
+        theModel.addAttribute("languages", languages);
 
 
         return "studentForm";
