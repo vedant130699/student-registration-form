@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Student Registration form</title>
@@ -16,13 +16,24 @@
         <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"></option>
     </select>
     <br><br>
-    Favourite programming language:
-    <input type="radio" th:field="*{favouriteLanguage}"
-                        th:each="tempLang: ${languages}"
-                        th:value="${tempLang}"
-                        th:text="${tempLang}"/>
+    Favourite programming language:<br>
+    <span th:each="tempLang : ${languages}">
+    <input type="radio" th:field="*{favouriteLanguage}" th:value="${tempLang}" />
+    <span th:text="${tempLang}"></span>
+    <br>
+    </span>
+
     <br><br>
-    <input type="submit" th:value="Submit" />
+    Favourite operating system:
+    <br>
+    <span th:each="tempSystem : ${operatingsystems}">
+    <input type="checkbox" th:field="*{favouriteSystems}" th:value="${tempSystem}" />
+    <span th:text="${tempSystem}"></span><br></span>
+    <br><br>
+
+    <!-- ✅ Only one submit button here -->
+    <input type="submit" value="Submit" />
+
 
 </form>
 </body>
